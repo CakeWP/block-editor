@@ -10,6 +10,7 @@ import {
     BlockEditorKeyboardShortcuts,
 } from '@wordpress/block-editor'
 import { ToolbarButton, Popover } from '@wordpress/components'
+import { PluginArea } from "@wordpress/plugins";
 import { undo as undoIcon, redo as redoIcon } from '@wordpress/icons'
 
 
@@ -62,6 +63,7 @@ const BlockEditor = ({ settings, onChange, blocks, undo, redo, canUndo, canRedo 
                 settings={settings}
             >
                 <Notices />
+                <PluginArea />
                 <Header.Fill>
                     <Inserter renderToggle={InserterToggle} />
                     <ToolbarButton icon={undoIcon} onClick={undo} disabled={!canUndo} className={'history-button'} />
