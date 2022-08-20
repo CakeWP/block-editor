@@ -12,6 +12,7 @@ import {
 import { ToolbarButton, Popover } from '@wordpress/components'
 import { undo as undoIcon, redo as redoIcon } from '@wordpress/icons'
 
+
 import Header from './Header'
 import Sidebar from './Sidebar'
 import InserterToggle from './InserterToggle'
@@ -60,7 +61,7 @@ const BlockEditor = ({ settings, onChange, blocks, undo, redo, canUndo, canRedo 
                 onChange={handleChange}
                 settings={settings}
             >
-                <Notices/>
+                <Notices />
                 <Header.Fill>
                     <Inserter renderToggle={InserterToggle} />
                     <ToolbarButton icon={undoIcon} onClick={undo} disabled={!canUndo} className={'history-button'} />
