@@ -61,6 +61,7 @@ const BlockEditor = ({ settings, onChange, blocks, undo, redo, canUndo, canRedo 
                 onInput={handleInput}
                 onChange={handleChange}
                 settings={settings}
+                useSubRegistry={false}
             >
                 <Notices />
                 <PluginArea />
