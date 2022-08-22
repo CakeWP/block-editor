@@ -16,6 +16,8 @@ import { select, dispatch, useSelect, useDispatch } from '@wordpress/data'
 import defaultSettings from '../lib/default-settings'
 import KeyboardShortcuts from './KeyboardShortcuts'
 
+import CoreStoresProvider from "../providers/CoreStoreProvider"
+
 
 export interface EditorProps {
     settings: EditorSettings,
@@ -69,33 +71,33 @@ const Editor = ({ settings, onChange, input, value }: EditorProps) => {
 
     return (
         <StrictMode>
-            <SlotFillProvider>
-                <ShortcutProvider>
-                    <div className="block-editor">
-                        <KeyboardShortcuts.Register/>
-                        <KeyboardShortcuts/>
+                <SlotFillProvider>
+                    <ShortcutProvider>
+                        <div className="block-editor">
+                            <KeyboardShortcuts.Register/>
+                            <KeyboardShortcuts/>
 
-                        <Header toggleSidebar={toggleSidebar} sidebarOpen={sidebarOpen} />
+                            <Header toggleSidebar={toggleSidebar} sidebarOpen={sidebarOpen} />
 
-                        <div
-                            className="block-editor__content"
-                            style={{height: settings.height}}
-                        >
-                            <BlockEditor
-                                blocks={blocks}
-                                onChange={setBlocks}
-                                undo={undo}
-                                redo={redo}
-                                canUndo={canUndo}
-                                canRedo={canRedo}
-                                settings={settings}
-                            />
+                            <div
+                                className="block-editor__content"
+                                style={{height: settings.height}}
+                            >
+                                <BlockEditor
+                                    blocks={blocks}
+                                    onChange={setBlocks}
+                                    undo={undo}
+                                    redo={redo}
+                                    canUndo={canUndo}
+                                    canRedo={canRedo}
+                                    settings={settings}
+                                />
 
-                            {sidebarOpen && <Sidebar/>}
+                                {sidebarOpen && <Sidebar/>}
+                            </div>
                         </div>
-                    </div>
-                </ShortcutProvider>
-            </SlotFillProvider>
+                    </ShortcutProvider>
+                </SlotFillProvider>
         </StrictMode>
     );
 };
